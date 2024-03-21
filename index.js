@@ -4,9 +4,9 @@ const http = require('http')
 const path = require('path')
 const cors = require('cors')
 const multer = require('multer')
-const axios = require('axios')
 
 const verifySlip = require('./api-bank/verifyslip')
+const connectDatabase = require('./database')
 
 const app = express()
 const server = http.createServer(app)
@@ -24,10 +24,9 @@ app.get('/', (req, res) => {
 app.post('/donate',upload.single('file'), (req, res) => {
     const { name, message } = req.body
     const file = req.file;
-    verifySlip(file).then(response => {
+    verifySlip(file, name, message).then(response => {
         if (response.status === 200) {
-            const amount = response.data.amount.amount
-            io.emit('donate', {name, message, amount})
+            io.emit('donate', {name, message})
             res.json(response.msg)
         } else if (response.status === 404) {
             res.json(response.msg)
@@ -54,4 +53,4 @@ io.on('connection', (socket) => {
 server.listen(3000, () => {
     console.log("tHis SerVer iS rUnnINg On P0rT 3000!!!")
 })
-
+connectDatabase()
