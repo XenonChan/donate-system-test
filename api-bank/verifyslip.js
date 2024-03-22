@@ -31,6 +31,7 @@ const verifySlip = async (imgfile, name, message) => {
                 await addSlip.save()
                 return {
                     status: 200,
+                    data: data,
                     msg: "Thankyou for Donatee!!! :3"
                 }
             } else {

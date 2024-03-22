@@ -26,7 +26,8 @@ app.post('/donate',upload.single('file'), (req, res) => {
     const file = req.file;
     verifySlip(file, name, message).then(response => {
         if (response.status === 200) {
-            io.emit('donate', {name, message})
+            const amount = response.data.amount.amount
+            io.emit('donate', {name, message, amount})
             res.json(response.msg)
         } else if (response.status === 404) {
             res.json(response.msg)
