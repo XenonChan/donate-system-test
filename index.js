@@ -13,12 +13,21 @@ const server = http.createServer(app)
 const io = socketIO(server)
 const upload = multer()
 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json())
 app.use(express.static(path.join(__dirname, 'widgets')))
+app.use(express.static(path.join(__dirname, 'views')))
 app.use(cors())
 
+
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/widgets/index.html')
+    res.sendFile(__dirname + '/views/donate.html')
+})
+app.get('/test', (req, res) => {
+    res.sendFile(__dirname + '/views/test.html')
+})
+app.get('/widgets', (req, res) => {
+    res.sendFile(__dirname + '/widgets/widgets.html')
 })
 
 app.post('/donate',upload.single('file'), (req, res) => {
@@ -37,7 +46,7 @@ app.post('/donate',upload.single('file'), (req, res) => {
     })
 })
 
-app.post('/test', (req, res) => {
+app.post('/testapi', (req, res) => {
     const { name, message, amount } = req.body;
     io.emit('donate', {name, message, amount})
     res.json({
