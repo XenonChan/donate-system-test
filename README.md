@@ -9,11 +9,13 @@ requirement
 <li>API สำหรับเช็คสลิป(ต้องเช่า)</li>
 <li>Database สำหรับเช็คสลิปว่ามีการโดเนทเข้ามามั้ยและเก็บข้อมูลเพื่อกันสลิปซ้ำ (MongoDB)</li>
 
+
 frameworkที่ใช้ 
 <li>Node.js</li>
 <li>Express.js</li>
 <li>Socket.io</li>
 <li>Bootstrap</li>
+
 
 install 
 ```
