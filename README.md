@@ -4,7 +4,7 @@
 เราสามรถtestโดเนทที่เข้ามาได้โดยใช้ในหน้า testdonte 
 
 <h3>recommend</h3>
-path url อาจจะใส่ให้มีการเข้าถึงยากกว่าเดิมโดยการใช่keyในurlเช่น /widgtes?=key=${key} หรือ /testdonate?=key=${key} เพื่อป้องกันการเข้าถึงโดยภายนอกของ widgets และ ระบบการtest 
+path url อาจจะใส่ให้มีการเข้าถึงยากกว่าเดิมโดยการใช่keyในurlเช่น /widgtes?key=${key} หรือ /testdonate?key=${key} เพื่อป้องกันการเข้าถึงโดยภายนอกของ widgets และ ระบบการtest 
 
 <h3>requirement</h3>
 
