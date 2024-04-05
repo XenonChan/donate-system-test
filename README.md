@@ -16,10 +16,12 @@
 <li>Bootstrap</li>
 
 <h2>install</h2>
+
 ```
 npm i
 ```
 <h2>run</h2>
+
 ```
 node .
 ```
